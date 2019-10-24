@@ -43,4 +43,29 @@ public:
         }
         return pCloneHead;
     }
+
+    RandomListNode *Clone2(RandomListNode *pHead) {
+        if (!pHead)
+            return NULL;
+        RandomListNode *h = new RandomListNode(0);
+        RandomListNode *curr_h = h;
+        RandomListNode *curr = pHead;
+        while (curr) {
+            RandomListNode *node = new RandomListNode(curr -> label);
+            curr_h -> next = node;
+            curr_h = curr_h -> next;
+            curr = curr -> next;
+        }
+        curr = pHead;
+        curr_h = h -> next;
+        while (curr) {
+            if (curr -> random) {
+                RandomListNode *node = new RandomListNode(curr -> random -> label);
+                curr_h -> random = node;
+
+            }
+            curr_h = curr_h -> next;
+            curr = curr -> next;
+        }
+    }
 };
