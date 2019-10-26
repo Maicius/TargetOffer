@@ -44,6 +44,7 @@ public:
         return pCloneHead;
     }
 
+    // 错误方法
     RandomListNode *Clone2(RandomListNode *pHead) {
         if (!pHead)
             return NULL;
@@ -59,10 +60,10 @@ public:
         curr = pHead;
         curr_h = h -> next;
         while (curr) {
+            // 这里虽然产生了一个和random的值一样的节点，但是地址不一样，所以错误
             if (curr -> random) {
                 RandomListNode *node = new RandomListNode(curr -> random -> label);
                 curr_h -> random = node;
-
             }
             curr_h = curr_h -> next;
             curr = curr -> next;

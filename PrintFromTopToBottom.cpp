@@ -2,7 +2,10 @@
 #include <queue>
 #include <vector>
 using namespace std;
-
+/**
+ * 题目描述
+从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+ */ 
 
 struct TreeNode {
 	int val;
