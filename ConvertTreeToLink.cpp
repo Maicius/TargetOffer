@@ -68,23 +68,31 @@ public:
     TreeNode *last = NULL;
 
     // 递归，中序遍历
-    TreeNode* Convert3(TreeNode* pRootOfTree) {
-        if(pRootOfTree == nullptr) return nullptr;
-        TreeNode* pre = nullptr;
-        convertHelper(pRootOfTree, pre);
-        TreeNode* res = pRootOfTree;
+    TreeNode* Convert3(TreeNode* root) {
+        if (!root) {
+            return NULL;
+        }
+        TreeNode *pre = NULL;
+        ConvertHelper(root, pre);
+        TreeNode* res = root;
         while(res ->left)
             res = res ->left;
         return res;
     }
-     
-    void convertHelper(TreeNode* cur, TreeNode*& pre) {
-        if(cur == nullptr) return;
-        convertHelper(cur ->left, pre); 
-        cur ->left = pre;
-        if(pre) pre ->right = cur;
-        pre = cur;
-        convertHelper(cur ->right, pre);  
+
+    TreeNode* ConvertHelper(TreeNode *root, TreeNode *&pre){
+        if (!root)
+            return;
+        if (root -> left) {
+            ConvertHelper(root -> left, pre);
+        }
+        root -> left = pre;
+        if (pre)
+            pre -> right = root;
+        pre = root;
+        if (root -> right) {
+            ConvertHelper(root -> right, pre);
+        }
     }
 };
 
