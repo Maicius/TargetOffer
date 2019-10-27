@@ -6,7 +6,7 @@ class Solution:
     def MoreThanHalfNum_Solution(self, numbers):
         # write code here
         result = 0
-        res = collections.Counter(numbers);
+        res = collections.Counter(numbers)
         for i, v in res.items():
             if v > len(numbers) / 2:
                 result = i
