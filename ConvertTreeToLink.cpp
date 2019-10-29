@@ -80,7 +80,7 @@ public:
         return res;
     }
 
-    TreeNode* ConvertHelper(TreeNode *root, TreeNode *&pre){
+    void ConvertHelper(TreeNode *root, TreeNode *&pre){
         if (!root)
             return;
         if (root -> left) {
