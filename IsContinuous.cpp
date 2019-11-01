@@ -33,11 +33,35 @@ public:
         }
         return true;
     }
+    bool IsContinuous2( vector<int> numbers ) {
+        if (numbers.size() == 1)
+            return true;
+        if (numbers.size() == 0)
+            return false;
+        int data[14] = {0};
+        data[0] = -5;
+        int max = -1, min = 14;
+        for (int i = 0; i < numbers.size(); i++) {
+            data[numbers[i]]++;
+            if (numbers[i] == 0)
+                continue;
+            if (data[numbers[i]] > 1)
+                return false;
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+        cout << max << min << endl;
+        return max - min < 5 ? true : false;
+    }
 };
 
 int  main() {
-    int data[6] = {8, 7, 4, 6, 0, 0};
-    vector<int> data1(data, data + 6);
+    int data[5] = {1, 3, 2, 5, 4};
+    vector<int> data1(data, data + 5);
     Solution *so = new Solution();
-    cout << so->IsContinuous(data1) <<endl;
+    cout << so->IsContinuous2(data1) <<endl;
 }
