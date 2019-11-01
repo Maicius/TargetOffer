@@ -33,6 +33,8 @@ public:
         }
         return true;
     }
+
+    // 牌数固定为5张，max - min 不超过5
     bool IsContinuous2( vector<int> numbers ) {
         if (numbers.size() == 1)
             return true;
